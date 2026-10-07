@@ -14,7 +14,7 @@ brew install runstructure/tap/structure
 
 That installs `structure`, with `runstructure` as a second name for the same command.
 
-**The app for macOS**: download `Structure-mac-<date>.zip` from the [latest release](https://github.com/runstructure/structure/releases/latest), unzip it, and move `Structure.app` to your Applications folder. It needs macOS 13 or later on Apple silicon, and it is signed and notarized.
+**The app for macOS**: download `Structure-macos.zip` from the [latest release](https://github.com/runstructure/structure/releases/latest), unzip it, and move `Structure.app` to your Applications folder. It needs macOS 13 or later on Apple silicon, and it is signed and notarized.
 
 **Without Homebrew**: each release also carries the command as a tarball for macOS (Apple silicon) and Linux (x86_64 and arm64). Unpack it and put the `structure` binary on your path. Every asset has a `.sha256` beside it.
 
