@@ -1,0 +1,242 @@
+# NOTICE
+
+Attributions for third-party material adapted into this repository. This file
+is APPEND-ONLY: add your skill's section at the end; never edit or remove an
+earlier one. Each adapted skill also names its sources in its own frontmatter
+and keeps a sources note beside its SKILL.md, per the 2026-08-22
+authorized-skills direction. Adaptation means ideas, structure, and
+discipline — never verbatim text.
+
+The repository's own license is in LICENSE (MIT); the prose under `templates/`
+carries the dedication described in templates/README.md.
+
+## templates/skills/interrogate
+
+Adapted from three MIT-licensed upstreams:
+
+- grill-me, from mattpocock/skills (MIT License)
+  https://github.com/mattpocock/skills
+- office-hours, from gstack, by Garry Tan (MIT License)
+- brainstorming, from obra/superpowers (MIT License)
+  https://github.com/obra/superpowers
+
+## templates/skills/plan — the "plan" verb (added 2026-08-22)
+
+Adapted from two MIT-licensed skill libraries. No verbatim text was copied;
+the rule forms and method were adapted and rewritten:
+
+- obra/superpowers (Jesse Vincent) — MIT License.
+  Adapted: the writing-plans audience rule ("for an engineer with zero context
+  and questionable taste") and the Iron Law + refusal skill form.
+- gstack (Garry Tan) — MIT License.
+  Adapted: the spec skill's intent-to-executable-spec phasing and the
+  plan-review chain's practice of feeding a named gate.
+
+Local note: templates/skills/plan/_sources.md
+
+## templates/skills/build/SKILL.md (the /build skill)
+
+Adapted from:
+
+- obra/superpowers — the test-driven-development skill: the Iron Law
+  ("no production code without a failing test first"), the watched red
+  (verify the failure and its reason before implementing), and the
+  rationalization-table pattern (pre-refuting the agent's observed
+  excuses). By Jesse Vincent and contributors.
+  https://github.com/obra/superpowers — MIT license.
+
+- mattpocock/skills — the tdd skill: the red-green-refactor loop as a
+  minimal, prose-only discipline. By Matt Pocock and contributors.
+  https://github.com/mattpocock/skills — MIT license.
+
+The adaptation rewrites both into Structure's process-aware form: the
+loop reads the company's own coding standards, binding claims name
+their test files, green is cited as claim => command => output, and
+gated output lands as proposals through the review surface.
+
+## templates/skills/investigate
+
+Adapted from two MIT-licensed sources:
+
+- obra/superpowers — Copyright Jesse Vincent, MIT License.
+  Adapted: the systematic-debugging discipline (root cause before any fix; the
+  rationalization-table idiom).
+- gstack — Copyright (c) 2026 Garry Tan, MIT License (license text verified in
+  the installed distribution).
+  Adapted: the investigate skill's reproduce-then-verify order, the three-strike
+  escalation to an architecture question, and the regression-test contract.
+
+## templates/skills/review (adapted 2026-08-22)
+
+Adapted from:
+
+- obra/superpowers (https://github.com/obra/superpowers), MIT License,
+  copyright Jesse Vincent — the requesting-code-review / receiving-code-review
+  pair: reproduce a finding before fixing it, agree by fixing, disagree with
+  evidence, never reflexive agreement.
+- gstack (Garry Tan), MIT License — the review skill's
+  pre-landing findings discipline: findings
+  before verdict, evidence cited from the working tree.
+
+The Iron Law wording, the evidence-bundle reading order, the propose-gate
+landing, and the refusal are original to this repository. No material was
+adapted from Anthropic's proprietary document skills or from the original
+Get Shit Done npm chain.
+
+## templates/skills/verify — adapted from obra/superpowers (MIT)
+
+The verify skill adapts the `verification-before-completion` discipline from
+Jesse Vincent's superpowers library (https://github.com/obra/superpowers),
+distributed under the MIT License, Copyright (c) Jesse Vincent. Adapted
+material includes the Iron Law and its phrase "skip any step = lying", the
+run-it-again discipline, and the rationalization-table idiom. The verification
+table format, the process wiring, and the `structure check` verify sensor are
+Structure's adaptation.
+
+## Correction — the licensing boundary, applied 2026-08-22
+
+This section is appended, not edited over: NOTICE is append-only, so where an
+earlier entry above no longer describes what ships, the correction is recorded
+here and the earlier entry stays as written.
+
+Michael's ratified boundary: MIT-attributed prose lives only in the artifacts
+this repository ships and keeps updating — the skill template files, their
+non-rendered `SOURCES.md` / `_sources.md` sidecars, and this file. Anything a
+template GENERATES becomes the user's own document and arrives attribution-free
+(the CC0 documents-arrive-clean doctrine). Three things changed to make that
+true rather than intended:
+
+- `templates/skills/build/SKILL.md` carried a `**Sources.**` section in its
+  body, which rendered into every scaffolded company. The section is removed and
+  its content now lives in `templates/skills/build/SOURCES.md`, beside the skill.
+- The `sources:` frontmatter key is compile-time metadata about the template and
+  used to survive into the rendered document. It is now dropped at render
+  (`packages/engine/src/templates.ts`), so the six adapted skills still name
+  their upstreams in the file we maintain and name nothing in the file a company
+  receives.
+- Two entries above record verbatim upstream wording as adapted material: the
+  verify section's phrase "skip any step = lying", and the plan section's
+  quotation of the writing-plans audience rule. Both phrases have been rewritten
+  in original prose and no longer appear in any shipped template body. Those
+  entries remain accurate about what was once adapted; they no longer describe
+  the current text.
+
+A sensor now enforces the boundary instead of a convention:
+`packages/engine/src/licensing_scan.ts` scans what the generators render and
+ERRORS on license names, copyright lines, SPDX identifiers, attribution idioms,
+and upstream repository names. It is pinned in
+`packages/engine/test/templates_test.ts`.
+
+The upstreams themselves stay MIT-named here. Nothing in this correction
+withdraws an attribution; it moves each one to the file that owes it.
+
+## packages/cli/src/runners.ts#codex-review — the independent review verb (added 2026-09-12)
+
+Adapted from gstack (Garry Tan), MIT License — the review section of its
+`codex` skill (`codex/sections/review-mode.md`). Three verified facts about
+the OpenAI Codex CLI were adapted, each re-verified on codex-cli 0.154.0 and
+pinned over captured output in `packages/cli/test/fixtures/codex-*`:
+
+- scope flags and the prompt argument are mutually exclusive on `codex
+  review` — a prompt beside `--base` is rejected, and a prompt alone silently
+  reviews the working tree — so the verb passes `--base`/`--commit` and no
+  prompt;
+- top-level `codex review` has no sandbox flag; the sandbox is a config
+  override (`-c sandbox_mode=…`), as is the model (`-c model=…`);
+- the model is probed and the version checked before any run.
+
+No text was copied and no launcher was adapted: gstack is not a dependency of
+any batch stage (intake 2g, ruled 2026-09-11). The adapter, the assignment,
+the stamp grammar and the refusal are original to this repository.
+
+## Correction — the templates dedication, scoped by directory (2026-09-26)
+
+Appended, not edited over. The opening of this file says the prose under
+`templates/` carries the dedication described in templates/README.md, which
+reads as one dedication for the whole tree. The scope is now a license file of
+its own, at the root: TEMPLATES-LICENSE, CC0 1.0 Universal. It widens the
+dedication from a sentence in a README to a license that names every canon seed
+the product ships, one directory at a time: templates/departments,
+templates/roles, templates/starters, templates/new, templates/generate,
+templates/graduate and templates/ingest. It also names the one directory it
+does not cover: templates/skills stays under the repository's MIT license
+(LICENSE), because the skills adapt the MIT-licensed upstreams named in this
+file. Every top-level directory under `templates/` is named in exactly one of
+the two, and a test walks the tree to keep it that way. The earlier sections
+stay as written; what a skill renders into a company still arrives
+attribution-free.
+
+## templates/skills/the-humanizer — the reviewed skills behind its catalog (2026-09-26)
+
+The humanizer's static catalog (the tell list in the skill and the mechanical
+layer in `packages/engine/src/humanizer.ts`) was distilled from a review of
+eleven public anti-slop skills. The catalog is the consensus the review found
+across them, rewritten; where a short phrase from one of them survives in the
+skill or in the humanizer's source comments, its entry below names it. Each upstream,
+with the license it carried when checked on 2026-09-26:
+
+- stop-slop, by Hardik Pandya — https://github.com/hardikpandya/stop-slop — MIT License.
+- no-ai-slop, by Peter Yang — https://github.com/petergyang/no-ai-slop — MIT License.
+  The portability test, and the rule that a fake-profound kicker is deleted,
+  not rewritten into a better metaphor.
+- humanizer, by blader — https://github.com/blader/humanizer — MIT License.
+  The false-positive guards, the cluster rule ("several stock patterns in the
+  same passage are stronger evidence"), and "matching the author beats
+  scrubbing the tell".
+- unslop, from the pstack skill library — https://github.com/backnotprop/pstack — MIT License.
+- slopbeth, from slopkit, by ehmo — https://github.com/ehmo/slopkit — MIT License.
+  The evidence-bound mode and the separation of the brief from the writing.
+- humanizer-skill, by Aboudjem — https://github.com/Aboudjem/humanizer-skill — MIT License.
+  The tiered vocabulary and the self-grading caveat.
+- deslop, by Stephen Turner — https://github.com/stephenturner/skill-deslop — MIT License.
+- anti-slop, by elithrar — https://github.com/elithrar/dotfiles — MIT License.
+  The restraint rule, quoted in the skill: "a false positive that flattens a
+  good sentence is worse than one surviving tell", and "when unsure, leave it".
+- humanize (soundshuman), by aasha — https://github.com/aashaexo/soundshuman — MIT License.
+- anti-ai-slop-writing, by jalaalrd — https://github.com/jalaalrd/anti-ai-slop-writing —
+  no license declared. Its generation-time quotas and detector-evasion
+  material were rejected. One sentence of its fact-preservation rule survives
+  in the skill's hard rules: "fabricated specificity is worse than honest
+  vagueness".
+- anti-slop, by Dillon Mulroy — https://github.com/dmmulroy/anti-slop — MIT License.
+  A code linter, reviewed for its distribution model (rules vendored into the
+  repository and enforced in CI); no rule was adapted.
+
+## Trademark (2026-09-26)
+
+Structure is a trademark of Botbotgoose, Inc. The licenses in LICENSE and
+TEMPLATES-LICENSE cover the code and the documents; neither grants any right to
+use the name.
+
+## CODE_OF_CONDUCT.md — the Contributor Covenant 2.1 (2026-09-26)
+
+The code of conduct is adapted from the Contributor Covenant:
+
+- Contributor Covenant, version 2.1 — https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+  — licensed under Creative Commons Attribution 4.0 International (CC BY 4.0),
+  https://creativecommons.org/licenses/by/4.0/
+
+The text is used verbatim, with two changes: the reporting contact the upstream
+leaves as a placeholder is filled with this project's security address, and one
+line is added at the end stating the Contributor Covenant's license. The
+upstream's own Attribution section is kept as written.
+
+## templates/skills/the-humanizer — the catalog as data: the frame adapted, our rows added (2026-10-18)
+
+This section is appended; the humanizer's section of 2026-09-26 above stays as written, and its eleven upstreams still stand.
+
+The skill's catalog, `markers.yml` beside it and the table in SKILL.md written from it, adapts the frame of humanizer, by blader (https://github.com/blader/humanizer, MIT License), in its own words: tells sorted into categories, each shown as a before and an after, evidence in tiers. No text of it is carried beyond the phrases the section above names. The skill's rewrite rules, its hard rules and its version are unchanged by the catalog; detect mode names a tell by its id in it.
+
+The idea of reading a draft by its channel, which the catalog's `channel` category holds a place for, comes from a Reddit post by the author of the "Crazy Marketer" humanizer, whose stated permission for it is free to use and free to distribute. The channel notes and the hook-and-value test written from that post are not in this version of the skill. The catalog's one channel row is written in our own words from our own edits; no text of the post is carried, and its scoring rubric and self-update instruction are not taken.
+
+The catalog's judgment rows are Structure's own, written from edits of real drafts, except one row and one test that come from community writing guidance; `markers.yml` beside the skill marks each row's source.
+
+## assets/vendor/lucide — the icons in the IDE and in the app's own windows (2026-11-14)
+
+The icons the IDE and the desktop app's own windows draw are Lucide's, copied in as they come, not adapted:
+
+- Lucide, version 1.73.0, by Lucide Icons and Contributors — https://github.com/lucide-icons/lucide — ISC License.
+
+Each file under `assets/vendor/lucide/icons/` is that release's own SVG file, byte for byte, from its `lucide-static` package; `assets/vendor/lucide/icons.ts` is generated from those files and carries their geometry unchanged. One glyph is the exception: `assets/vendor/lucide/drawn/tab-search.svg` was drawn for this product on Lucide's grid and stroke, adapted from Lucide's `text-search`, and is carried under the same ISC License. Some Lucide icons derive from Feather, by Cole Bemis (https://github.com/feathericons/feather, MIT License), and some of the files carried here are among them. The full text of both licences, with Lucide's own list of the Feather-derived icons, travels with the files as `assets/vendor/lucide/LICENSE`.
+
+Nothing in a build, a test or a page fetches an icon; `assets/vendor/lucide/README.md` records the release, the package's digest and how a new one is added.
