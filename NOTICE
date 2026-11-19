@@ -240,3 +240,11 @@ The icons the IDE and the desktop app's own windows draw are Lucide's, copied in
 Each file under `assets/vendor/lucide/icons/` is that release's own SVG file, byte for byte, from its `lucide-static` package; `assets/vendor/lucide/icons.ts` is generated from those files and carries their geometry unchanged. One glyph is the exception: `assets/vendor/lucide/drawn/tab-search.svg` was drawn for this product on Lucide's grid and stroke, adapted from Lucide's `text-search`, and is carried under the same ISC License. Some Lucide icons derive from Feather, by Cole Bemis (https://github.com/feathericons/feather, MIT License), and some of the files carried here are among them. The full text of both licences, with Lucide's own list of the Feather-derived icons, travels with the files as `assets/vendor/lucide/LICENSE`.
 
 Nothing in a build, a test or a page fetches an icon; `assets/vendor/lucide/README.md` records the release, the package's digest and how a new one is added.
+
+## templates/skills/council (adapted 2026-11-17)
+
+Adapted from:
+
+- t3dotgg/tstack (https://github.com/t3dotgg/tstack), MIT License, the council and sol-loop skills: one reviewer per provider, reviewers that only judge, a chair that answers every finding, a round budget, and the optional fourth reviewer.
+
+The law (a score counts only from a different model that saw the real work and did not know the target), that a missing reviewer is reported and never replaced, the rules for briefing a reviewer, and where the results go are original to this repository, as are the hill-climb and hill-find skills that use the council's reviewers.
