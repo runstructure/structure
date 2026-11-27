@@ -245,6 +245,6 @@ Nothing in a build, a test or a page fetches an icon; `assets/vendor/lucide/READ
 
 Adapted from:
 
-- t3dotgg/tstack (https://github.com/t3dotgg/tstack), MIT License, the council and sol-loop skills: one reviewer per provider, reviewers that only judge, a chair that answers every finding, a round budget, and the optional fourth reviewer.
+- t3dotgg/tstack (https://github.com/t3dotgg/tstack), Copyright (c) 2026 Theo Browne, MIT License, as read at commit 1085050 (27 October 2026), the council and sol-loop skills: one reviewer per provider, reviewers that only judge, a chair that answers every finding, a round budget, and the optional fourth reviewer.
 
 The law (a score counts only from a different model that saw the real work and did not know the target), that a missing reviewer is reported and never replaced, the rules for briefing a reviewer, and where the results go are original to this repository, as are the hill-climb and hill-find skills that use the council's reviewers.
